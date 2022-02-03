@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import AddNote from "./AddNote";
+import Notes from "./Notes";
+import { useQuery, gql } from "@apollo/client";
+
+export const GET_NOTES = gql`
+  query {
+    notes {
+      name
+      text
+      id
+    }
+  }
+`;
 
 function App() {
+  const { loading, error, data, refetch } = useQuery(GET_NOTES);
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AddNote refetch={() => refetch()} />
+      <Notes data={data} />
+    </>
   );
 }
 
