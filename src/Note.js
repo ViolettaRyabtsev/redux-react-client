@@ -24,6 +24,7 @@ function Note(props) {
   });
 
   const deleteFormDtaBase = () => {
+    props.refetch();
     delNote({
       variables: {
         name: props.name,
@@ -32,22 +33,19 @@ function Note(props) {
       },
     });
 
-    setClick(true);
-
-    // let newNote = {
-    //   name: props.name,
-    //   text: props.text,
-    //   id: props.id,
-    // };
-
-    // console.log(newNote, "new note");
+    let newNote = {
+      name: props.name,
+      text: props.text,
+      id: props.id,
+    };
+    console.log(newNote, "new note");
   };
 
   return (
-    <div onClick={deleteFormDtaBase}>
+    <div onClick={() => setClick(true)}>
       <h5>{props.name}</h5>
       <h6>{props.text}</h6>
-      {click ? <button>delete</button> : null}
+      {click ? <button onClick={deleteFormDtaBase}>delete</button> : null}
     </div>
   );
 }

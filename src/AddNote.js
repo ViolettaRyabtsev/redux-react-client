@@ -42,6 +42,7 @@ function AddNoteToMysql(props) {
         id: Math.floor(Math.random() * 100),
       },
     });
+
     setNote({
       name: "",
       text: "",
@@ -52,12 +53,13 @@ function AddNoteToMysql(props) {
     <>
       <div>
         <form onSubmit={handleSubmit}>
-          <label></label>
           {submitted ? <div>submitted successful</div> : null}
+          <label>name </label>
           <input
             onChange={(e) => setNote({ ...note, name: e.target.value })}
             value={note.name}
           ></input>
+          <label> comment </label>
           {/* {submitted && !note.name ? <span>please enter username</span> : null} */}
           <input
             onChange={(e) => setNote({ ...note, text: e.target.value })}

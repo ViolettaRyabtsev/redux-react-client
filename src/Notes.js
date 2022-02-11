@@ -2,14 +2,17 @@ import { useState } from "react";
 import React from "react";
 import "./App.css";
 import Note from "./Note";
-function Notes({ data }) {
-  console.log(data.notes);
-
+function Notes(props) {
   return (
     <div>
-      {data.notes.map((item) => (
+      {props.data.notes.map((item) => (
         <div className="comment">
-          <Note name={item.name} text={item.text} id={item.id} />
+          <Note
+            refetch={props.refetchNotes}
+            name={item.name}
+            text={item.text}
+            id={item.id}
+          />
         </div>
       ))}
     </div>
