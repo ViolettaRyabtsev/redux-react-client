@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { GET_NOTES } from "./App";
+import { GET_NOTES } from "./ContactUs";
 import { useState } from "react";
 
 const ADD_NOTE = gql`

@@ -5,6 +5,10 @@ body {
 .navBar {
   display: flex;
 }
+a {
+  color: #8e8d8a;
+  text-decoration: none;
+}
 .navBar h3 {
   margin-left: 80px;
 }

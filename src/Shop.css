@@ -1,0 +1,37 @@
+.container {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin: 30px;
+}
+
+.cocktail-box {
+  margin: 20px;
+  padding: 20px;
+  height: 700px;
+  display: inline-block;
+}
+
+p {
+  font-size: 20px;
+}
+
+.cocktail-box .price-button {
+  display: inline-flex;
+}
+
+.cocktail-box h3 {
+  font-size: 28px;
+}
+.price-button button {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  background-color: blue;
+}
+.price-button h3 {
+  font-size: 25px;
+  padding-top: 15px;
+}

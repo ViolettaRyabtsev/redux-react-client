@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import { GET_NOTES } from "./App.js";
-
+import "./notes.css";
 function Note(props) {
   const DELETE_NOTE = gql`
     mutation deleteNote($name: String!, $text: String!, $id: ID!) {
@@ -42,9 +42,9 @@ function Note(props) {
   };
 
   return (
-    <div onClick={() => setClick(true)}>
-      <h5>{props.name}</h5>
-      <h6>{props.text}</h6>
+    <div className="note-section" onClick={() => setClick(true)}>
+      <h4>{props.name}</h4>
+      <p>{props.text}</p>
       {click ? <button onClick={deleteFormDtaBase}>delete</button> : null}
     </div>
   );

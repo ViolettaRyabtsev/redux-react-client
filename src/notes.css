@@ -1,0 +1,9 @@
+.note-section {
+  background-color: burlywood;
+  border-radius: 10px;
+}
+
+
+.comment :hover {
+  background: #752f2f;
+}
