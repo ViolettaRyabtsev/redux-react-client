@@ -36,16 +36,19 @@ export const GET_COCKTAILS = gql`
 function App() {
   const user = useSelector((state) => state.user.value);
   const list = useSelector((state) => state.cocktailList.value);
+  const [state, setState] = useState([]);
 
+  console.log(list, "list");
   // const { loading, error, data, refetch } = useQuery(GET_NOTES);
   const { data, loading, error } = useQuery(GET_COCKTAILS);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // console.log(data.cocktailList, "data from database");
-    dispatch(setCocktailList(data.cocktailList));
-  }, []);
+  async function addList() {
+    await dispatch(setCocktailList(data.cocktailList));
+  }
+
+  addList();
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
@@ -61,7 +64,7 @@ function App() {
 
       <div>{user.username} login </div>
       <div>
-        {data.cocktailList.map((item) => (
+        {list.map((item) => (
           <h4>{item.name}</h4>
         ))}{" "}
         cocktails{" "}

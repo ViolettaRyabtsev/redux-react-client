@@ -1,12 +1,35 @@
+import "./main-about.css";
+
 function MainPhoto() {
   return (
-    <div>
+    <div className="about-us">
       <img
         alt="main-cocktails"
-        width="100%"
-        height="800px"
         src="https://cocktail-list.s3.us-west-2.amazonaws.com/cocktails+list/main.photo.jpg"
       ></img>
+      <div className="new-summer">
+        <h2>New Summer Collection!</h2>
+        <h4>
+          {" "}
+          Check out our new collection for <b>birthday party</b>,{" "}
+          <b>bachelor party</b>, <b>gender reveal party</b> collection
+        </h4>
+      </div>
+
+      <div className="show-collection">
+        <img
+          alt="main-cocktails"
+          src="https://cocktail-list.s3.us-west-2.amazonaws.com/cocktails+list/main.photo.jpg"
+        ></img>
+        <img
+          alt="main-cocktails"
+          src="https://cocktail-list.s3.us-west-2.amazonaws.com/cocktails+list/main.photo.jpg"
+        ></img>
+        <img
+          alt="main-cocktails"
+          src="https://cocktail-list.s3.us-west-2.amazonaws.com/cocktails+list/main.photo.jpg"
+        ></img>
+      </div>
     </div>
   );
 }

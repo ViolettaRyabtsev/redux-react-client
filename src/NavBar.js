@@ -6,6 +6,7 @@ import { setUserName } from "./features/user";
 import { setCocktailList } from "./features/cocktails";
 import { gql, useQuery } from "@apollo/client";
 import { Routes, Route, Link } from "react-router-dom";
+import PopUpShoppingCart from "./PopUpShoppinCart";
 export const GET_COCKTAILS = gql`
   query {
     cocktailList {
@@ -20,7 +21,10 @@ export const GET_COCKTAILS = gql`
 
 function NavBar() {
   const [popUp, setPopUp] = useState(false);
+  const [popUpCart, setPopUpCart] = useState(false);
+
   const user = useSelector((state) => state.user.value);
+
   // const list = useSelector((state) => state.cocktailList.value);
 
   // const { data, loading, error } = useQuery(GET_COCKTAILS);
@@ -36,6 +40,13 @@ function NavBar() {
 
   const handleLogOut = () => {
     dispatch(setUserName({ id: "", username: "" }));
+  };
+
+  const handleOpenCart = () => {
+    setPopUpCart(true);
+    if (popUpCart) {
+      setPopUpCart(false);
+    }
   };
 
   // const handleClickShop = (event) => {
@@ -55,7 +66,10 @@ function NavBar() {
           {" "}
           <Link to="/contact">Contact us</Link>
         </h3>
-        <h3> About</h3>
+        <h3>
+          {" "}
+          <Link to="/">About us</Link>
+        </h3>
       </div>
       <div className="user-section">
         {user.username === "" ? (
@@ -63,12 +77,20 @@ function NavBar() {
         ) : (
           <h3 onClick={handleLogOut}>Log out</h3>
         )}
-        <h3>Cart</h3>
+        <h3 onClick={handleOpenCart}>Shopping Cart</h3>
+
         <h3>Gift Cards</h3>
       </div>
       {popUp ? (
         <div className="popUp-login">
           <SignInForm closePopup={() => setPopUp(false)} />
+        </div>
+      ) : null}
+
+      {popUpCart ? (
+        <div className="cart-popUp">
+          {" "}
+          <PopUpShoppingCart />{" "}
         </div>
       ) : null}
     </div>
