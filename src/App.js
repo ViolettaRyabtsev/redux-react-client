@@ -1,15 +1,14 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import AddNote from "./AddNote";
-import Notes from "./Notes";
 import { useQuery, gql } from "@apollo/client";
 import NavBar from "./NavBar";
 import { useSelector, useDispatch } from "react-redux";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ShopCocktails from "./Shop.js";
 import MainPhoto from "./MainPhoto";
 import ContactUs from "./ContactUs";
-import { setCocktailList } from "./features/cocktails";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "./state/index";
+import { useEffect } from "react";
 
 export const GET_NOTES = gql`
   query {
@@ -34,24 +33,20 @@ export const GET_COCKTAILS = gql`
 `;
 
 function App() {
-  const user = useSelector((state) => state.user.value);
-  const list = useSelector((state) => state.cocktailList.value);
-  const [state, setState] = useState([]);
-
-  console.log(list, "list");
-  // const { loading, error, data, refetch } = useQuery(GET_NOTES);
+  const store = useSelector((state) => state);
   const { data, loading, error } = useQuery(GET_COCKTAILS);
 
+  console.log(store.user, "user");
+
   const dispatch = useDispatch();
+  const { setCocktailList } = bindActionCreators(actionCreators, dispatch);
 
-  async function addList() {
-    await dispatch(setCocktailList(data.cocktailList));
-  }
+  useEffect(() => {
+    if (data) {
+      setCocktailList(data.cocktailList);
+    }
+  }, [loading]);
 
-  addList();
-
-  if (loading) return "Loading...";
-  if (error) return `Error! ${error.message}`;
   return (
     <>
       <NavBar />
@@ -62,9 +57,9 @@ function App() {
         <Route></Route>
       </Routes>
 
-      <div>{user.username} login </div>
+      <div>{store.user.username} login </div>
       <div>
-        {list.map((item) => (
+        {store.cocktailList.map((item) => (
           <h4>{item.name}</h4>
         ))}{" "}
         cocktails{" "}

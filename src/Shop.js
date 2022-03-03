@@ -7,11 +7,11 @@ function ShopCocktails(props) {
 
   //   if (loading) return "Loading...";
   //   if (error) return `Error! ${error.message}`;
-  const list = useSelector((state) => state.cocktailList.value);
+  const store = useSelector((state) => state);
 
   return (
     <div className="container">
-      {list.map((item) => (
+      {store.cocktailList.map((item) => (
         <div className="cocktail-box">
           <img
             alt="cocktail"

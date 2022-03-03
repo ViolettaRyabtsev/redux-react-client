@@ -1,3 +1,11 @@
 .shopping-cart {
-  background-color: azure;
+  background-color: white;
+  padding: 10px;
+}
+
+.cart-popUp {
+  background-color: bisque;
+}
+
+.shopping-cart-items {
 }

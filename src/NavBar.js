@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./App.css";
 import SignInForm from "./SignInForm";
 import { useSelector, useDispatch } from "react-redux";
-import { setUserName } from "./features/user";
-import { setCocktailList } from "./features/cocktails";
 import { gql, useQuery } from "@apollo/client";
 import { Routes, Route, Link } from "react-router-dom";
 import PopUpShoppingCart from "./PopUpShoppinCart";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "./state/index";
 export const GET_COCKTAILS = gql`
   query {
     cocktailList {
@@ -23,13 +23,12 @@ function NavBar() {
   const [popUp, setPopUp] = useState(false);
   const [popUpCart, setPopUpCart] = useState(false);
 
-  const user = useSelector((state) => state.user.value);
+  const store = useSelector((state) => state);
 
   // const list = useSelector((state) => state.cocktailList.value);
-
-  // const { data, loading, error } = useQuery(GET_COCKTAILS);
-
   const dispatch = useDispatch();
+  // const { data, loading, error } = useQuery(GET_COCKTAILS);
+  const { setUserName } = bindActionCreators(actionCreators, dispatch);
 
   const handleClick = () => {
     setPopUp(true);
@@ -39,7 +38,7 @@ function NavBar() {
   };
 
   const handleLogOut = () => {
-    dispatch(setUserName({ id: "", username: "" }));
+    setUserName({ id: "", username: "" });
   };
 
   const handleOpenCart = () => {
@@ -48,12 +47,6 @@ function NavBar() {
       setPopUpCart(false);
     }
   };
-
-  // const handleClickShop = (event) => {
-  //   event.preventDefault();
-  //   console.log(data, "data");
-  //   dispatch(setCocktailList(data.cocktailList));
-  // };
 
   return (
     <div className="navBar">
@@ -72,7 +65,7 @@ function NavBar() {
         </h3>
       </div>
       <div className="user-section">
-        {user.username === "" ? (
+        {store.user.username === "" ? (
           <h3 onClick={handleClick}>SignIn</h3>
         ) : (
           <h3 onClick={handleLogOut}>Log out</h3>
@@ -88,10 +81,7 @@ function NavBar() {
       ) : null}
 
       {popUpCart ? (
-        <div className="cart-popUp">
-          {" "}
-          <PopUpShoppingCart />{" "}
-        </div>
+        <div className="cart-popUp"> {/* <PopUpShoppingCart /> */}</div>
       ) : null}
     </div>
   );

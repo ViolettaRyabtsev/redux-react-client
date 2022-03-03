@@ -4,7 +4,9 @@ import "./Form.css";
 import { useDispatch } from "react-redux";
 import { AiOutlineClose } from "react-icons/ai";
 import { gql, useMutation } from "@apollo/client";
-import { setUserName } from "./features/user";
+import { useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "./state/index";
 
 const ADD_USER = gql`
   mutation addUser($id: ID!, $username: String!, $password: String!) {
@@ -28,10 +30,15 @@ const SignInForm = (props) => {
   const [correctForm, setCorrectForm] = useState(true);
 
   const [addUser, { data, loading, error }] = useMutation(ADD_USER);
-
+  console.log(data);
   // const user = useSelector((state) => state.user.value);
+  const store = useSelector((state) => state);
+  console.log(store.user, "user name ");
 
   const dispatch = useDispatch();
+
+  //redux
+  const { setUserName } = bindActionCreators(actionCreators, dispatch);
 
   const matchCredentials = (username, password) => {
     const email_pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$";
@@ -59,8 +66,8 @@ const SignInForm = (props) => {
       setCorrectForm(false);
     } else if (isItMatch) {
       //add to redux global state
-
-      dispatch(setUserName({ id: form.id, username: form.userName }));
+      console.log(form, "local form");
+      setUserName({ id: form.id, username: form.userName });
 
       addUser({
         variables: {
@@ -71,6 +78,7 @@ const SignInForm = (props) => {
       });
 
       setCorrectForm(true);
+
       setSubmit(true);
       console.log(form, "form");
 
