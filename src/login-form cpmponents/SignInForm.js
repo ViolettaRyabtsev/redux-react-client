@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./App.css";
+import "../App.css";
 import "./Form.css";
 import { useDispatch } from "react-redux";
 import { AiOutlineClose } from "react-icons/ai";
 import { gql, useMutation } from "@apollo/client";
 import { useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import { actionCreators } from "./state/index";
+import { actionCreators } from "../state/index";
 
 const ADD_USER = gql`
   mutation addUser($id: ID!, $username: String!, $password: String!) {

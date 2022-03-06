@@ -3,9 +3,11 @@ import { useQuery, gql } from "@apollo/client";
 import NavBar from "./NavBar";
 import { useSelector, useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
-import ShopCocktails from "./Shop.js";
+import ShopCocktails from "./shop components/ShopCocktailList.js";
 import MainPhoto from "./MainPhoto";
-import ContactUs from "./ContactUs";
+import ContactUs from "./contact-us component/ContactUs";
+// import CocktailComponent from "./shop components/CocktailComponent";
+import CocktailDetails from "./shop components/CocktailDetails";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
 import { useEffect } from "react";
@@ -54,7 +56,7 @@ function App() {
         <Route path="/" element={<MainPhoto />}></Route>
         <Route path="/shop" element={<ShopCocktails />}></Route>
         <Route path="/contact" element={<ContactUs />} />
-        <Route></Route>
+        <Route path="/shop/:id" element={<CocktailDetails />}></Route>
       </Routes>
 
       <div>{store.user.username} login </div>

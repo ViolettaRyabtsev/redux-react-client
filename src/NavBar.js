@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import SignInForm from "./SignInForm";
+import SignInForm from "./login-form cpmponents/SignInForm";
 import { useSelector, useDispatch } from "react-redux";
 import { gql, useQuery } from "@apollo/client";
 import { Routes, Route, Link } from "react-router-dom";
-import PopUpShoppingCart from "./PopUpShoppinCart";
+
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
 export const GET_COCKTAILS = gql`
@@ -78,10 +78,6 @@ function NavBar() {
         <div className="popUp-login">
           <SignInForm closePopup={() => setPopUp(false)} />
         </div>
-      ) : null}
-
-      {popUpCart ? (
-        <div className="cart-popUp"> {/* <PopUpShoppingCart /> */}</div>
       ) : null}
     </div>
   );

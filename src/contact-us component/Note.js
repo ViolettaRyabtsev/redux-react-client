@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
-import { GET_NOTES } from "./App.js";
+import { GET_NOTES } from "../App";
+
 import "./notes.css";
 function Note(props) {
   const DELETE_NOTE = gql`

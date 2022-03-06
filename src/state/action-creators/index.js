@@ -15,3 +15,12 @@ export const setUserName = (obj) => {
     });
   };
 };
+
+export const selectCocktail = (obj) => {
+  return (dispatch) => {
+    dispatch({
+      type: "SELECT_COCKTAIL",
+      payload: obj,
+    });
+  };
+};
