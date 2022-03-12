@@ -12,6 +12,7 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
 import { useEffect } from "react";
 
+
 export const GET_NOTES = gql`
   query {
     notes {
@@ -47,7 +48,7 @@ function App() {
     if (data) {
       setCocktailList(data.cocktailList);
     }
-  }, [loading]);
+  }, [loading]); 
 
   return (
     <>

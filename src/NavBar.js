@@ -4,6 +4,10 @@ import SignInForm from "./login-form cpmponents/SignInForm";
 import { useSelector, useDispatch } from "react-redux";
 import { gql, useQuery } from "@apollo/client";
 import { Routes, Route, Link } from "react-router-dom";
+import { BsFillCartFill } from "react-icons/bs";
+import { MdOutlineSwitchAccount } from "react-icons/md";
+import { BiLogOutCircle } from "react-icons/bi";
+import { GoLocation } from "react-icons/go";
 
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
@@ -66,13 +70,21 @@ function NavBar() {
       </div>
       <div className="user-section">
         {store.user.username === "" ? (
-          <h3 onClick={handleClick}>SignIn</h3>
+          <h3 onClick={handleClick}>
+            {" "}
+            <MdOutlineSwitchAccount className="icon" />
+          </h3>
         ) : (
-          <h3 onClick={handleLogOut}>Log out</h3>
+          <h3 onClick={handleLogOut}>
+            <BiLogOutCircle className="icon" />
+          </h3>
         )}
-        <h3 onClick={handleOpenCart}>Shopping Cart</h3>
-
-        <h3>Gift Cards</h3>
+        <h3 onClick={handleOpenCart}>
+          <BsFillCartFill className="icon" />
+        </h3>
+        <h3>
+          <GoLocation className="icon" />
+        </h3>
       </div>
       {popUp ? (
         <div className="popUp-login">

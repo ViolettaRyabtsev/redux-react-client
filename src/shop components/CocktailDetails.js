@@ -1,8 +1,8 @@
 //select product from redux
 import { actionCreators } from "../state/index";
-
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
+
 
 function CocktailDetails(props) {
   const cocktailDetails = useSelector((state) => state.selectCocktail);

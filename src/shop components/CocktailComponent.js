@@ -2,6 +2,7 @@ import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCocktail } from "../state/action-creators/index";
+import { MdOutlineSwitchAccount } from "react-icons/md";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state/index";
 

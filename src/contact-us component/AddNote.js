@@ -21,17 +21,17 @@ function AddNoteToMysql(props) {
   const [submitted, setSubmitted] = useState(false);
 
   const [addNote, { data, loading, error }] = useMutation(ADD_NOTE, {
-    refetchQueries: [GET_NOTES],
+    refetchQueries: [GET_NOTES], 
     onCompleted(data) {},
     onError(error) {},
     awaitRefetchQueries: true,
     suspense: false,
   });
 
+
   const handleSubmit = (event) => {
     props.refetch();
-
-    event.preventDefault();
+    event.preventDefault(); 
     console.log("note is ", note);
     setSubmitted(true);
     //add to mysql
