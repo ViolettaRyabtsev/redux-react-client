@@ -1,0 +1,12 @@
+.account-details-body {
+  background-color: aqua;
+  display: flex;
+}
+
+.account-details {
+  background-color: blue;
+}
+
+.order-history {
+  background-color: pink;
+}

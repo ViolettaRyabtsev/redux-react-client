@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 import "./Form.css";
 import { useDispatch } from "react-redux";
-import { AiOutlineClose } from "react-icons/ai";
+import { Navigate } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
 import { useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -87,15 +87,13 @@ const SignInForm = (props) => {
         userName: "",
         password: "",
       });
-      props.closePopup();
     }
   };
 
   return (
     <div className="form-Login">
-      <AiOutlineClose onClick={props.closePopup} className="close-button" />
       <div className="text-login">
-        <h2>My Account</h2>
+        <h3>Sign In</h3>
         <h3>
           Sign in to get your Frequent Steeper points and redeem your free
           rewards.
@@ -103,10 +101,10 @@ const SignInForm = (props) => {
         <form onSubmit={handleSubmit}>
           <label>
             {correctForm ? null : (
-              <h4>
+              <h3>
                 Oops! This doesn't match our records. Please check your spelling
                 and try again.
-              </h4>
+              </h3>
             )}
             <input
               type="email"
@@ -127,7 +125,15 @@ const SignInForm = (props) => {
           <button type="submit" className="signIn-button">
             Sign In
           </button>
-          <h3>Create Account</h3>
+          <h3>Don't have an Account? </h3>
+          <button type="submit" className="signIn-button">
+            Register Now
+          </button>
+          {submit ? (
+            <Navigate to="/account/id" replace={true} />
+          ) : (
+            <div>hi</div>
+          )}
         </form>
       </div>
     </div>
