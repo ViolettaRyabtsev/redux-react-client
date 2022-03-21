@@ -45,6 +45,7 @@
 }
 .text-login .signIn-button {
   width: 40%;
+  height: 50px;
   font-size: 20px;
   padding: 13px;
   opacity: 0.9;

@@ -1,0 +1,107 @@
+.product-detail-cart {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.cart-information {
+  margin-top: 50px;
+}
+
+.cart-information h3 {
+  width: 50%;
+  margin: auto;
+  letter-spacing: 0.4rem;
+  padding-bottom: 40px;
+  font-size: 18px;
+  color: black;
+  opacity: 0.8;
+  padding-left: 60px;
+}
+
+.line {
+  width: 600px;
+  height: 4px;
+  border: solid black 2px;
+}
+.all-products {
+  width: 80%;
+  margin: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+table th {
+  background-color: aqua;
+}
+
+.product {
+  display: flex;
+}
+
+.main-products {
+  border-top: solid black 2px;
+}
+
+.product td {
+  margin-left: 5px;
+  padding-top: 100px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+.subtotal {
+  margin: auto;
+  display: grid;
+  background-color: beige;
+}
+.subtotal-price {
+  display: flex;
+  padding-left: 900px;
+}
+
+.subtotal-price h2 {
+  color: black;
+}
+
+h6 {
+  float: right;
+  background-color: beige;
+}
+
+.buttons {
+  float: right;
+  padding-left: 750px;
+  margin: 0 auto;
+  display: flex;
+}
+
+button {
+  color: white;
+  background-color: black;
+}
+
+.button1 {
+  display: inline-block;
+  width: calc(60% - 4px);
+  margin: 0 auto;
+  height: 50px;
+  width: 200px;
+  margin-right: 20px;
+  margin-top: 20px;
+  opacity: 0.8;
+}
+.button2 {
+  display: inline-block;
+  width: calc(60% - 4px);
+  margin: 0 auto;
+  height: 50px;
+  width: 200px;
+  margin-top: 20px;
+  opacity: 0.8;
+}

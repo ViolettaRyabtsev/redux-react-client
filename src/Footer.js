@@ -5,14 +5,14 @@ const Footer = () => {
     <div style={{ display: "flex" }} className="footer">
       <div className="shipping-return">
         <h2>Shipping and Returns</h2>{" "}
-        <ul>
+        <ul style={{ display: "grid" }}>
           <li>Shipping</li>
           <li>Returns</li>
         </ul>
       </div>
       <div className="getToKnow-us">
         <h2>Get to know Us</h2>
-        <ul>
+        <ul style={{ display: "grid" }}>
           <li>About Us</li>
           <li>Store Locations</li>
           <li>Journal</li>
@@ -20,7 +20,7 @@ const Footer = () => {
       </div>
       <div className="my-account">
         <h2>My Account</h2>
-        <ul>
+        <ul style={{ display: "grid" }}>
           <li>Login</li>
           <li>Create Account</li>
         </ul>

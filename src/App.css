@@ -5,12 +5,17 @@ body {
 .navBar {
   display: flex;
 }
+.navBar img {
+  margin-left: 20px;
+}
+
 a {
-  color: #8e8d8a;
+  color: black;
   text-decoration: none;
+  opacity: 0.8;
 }
 .navBar h3 {
-  margin-left: 80px;
+  margin-left: 30px;
 }
 
 h2 {
@@ -29,11 +34,13 @@ h2 {
   display: flex;
   margin-left: 20px;
   width: 50%;
+  padding-top: 20px;
 }
 
 .user-section {
   display: flex;
   padding-left: 310px;
+  padding-top: 20px;
 }
 
 .user-section h3 {
@@ -52,6 +59,11 @@ input {
   height: 50px;
 }
 
-.comment :hover {
-  background: #752f2f;
+.shoppingCart-number {
+  font-size: 10px;
+  background: black;
+  color: #fff;
+  padding: 0 3px;
+  vertical-align: top;
+  margin-left: -30px;
 }

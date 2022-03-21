@@ -1,6 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { GET_NOTES } from "./ContactUs";
 import { useState } from "react";
+import "./notes.css";
 
 const ADD_NOTE = gql`
   mutation addNote($name: String!, $text: String!, $id: ID!) {
@@ -21,19 +22,18 @@ function AddNoteToMysql(props) {
   const [submitted, setSubmitted] = useState(false);
 
   const [addNote, { data, loading, error }] = useMutation(ADD_NOTE, {
-    refetchQueries: [GET_NOTES], 
+    refetchQueries: [GET_NOTES],
     onCompleted(data) {},
     onError(error) {},
     awaitRefetchQueries: true,
     suspense: false,
   });
 
-
   const handleSubmit = (event) => {
     props.refetch();
-    event.preventDefault(); 
+    event.preventDefault();
     console.log("note is ", note);
-    setSubmitted(true);
+    setSubmitted(!submitted);
     //add to mysql
     addNote({
       variables: {
@@ -49,24 +49,51 @@ function AddNoteToMysql(props) {
     });
   };
 
+  const handleCancel = () => {
+    setNote({
+      name: "",
+      text: "",
+    });
+  };
+
   return (
     <>
-      <div>
+      <div className="comment-container">
         <form onSubmit={handleSubmit}>
-          {submitted ? <div>submitted successful</div> : null}
-          <label>name </label>
+          {submitted ? (
+            <div className="tell-us">
+              {" "}
+              <h2> Submitted successfully </h2>
+            </div>
+          ) : (
+            <div className="tell-us">
+              {" "}
+              <h2> Tell us what you think </h2>
+            </div>
+          )}
+          <label></label>
           <input
             onChange={(e) => setNote({ ...note, name: e.target.value })}
             value={note.name}
+            className="input-name"
+            placeholder="name..."
           ></input>
-          <label> comment </label>
+          <label></label>
           {/* {submitted && !note.name ? <span>please enter username</span> : null} */}
           <input
             onChange={(e) => setNote({ ...note, text: e.target.value })}
             value={note.text}
+            placeholder="leave a comment..."
           ></input>
           {/* {submitted && !note.text ? <span>please enter text</span> : null} */}
-          <button type="submit">Add note </button>
+          {note.name !== "" && note.text !== "" ? (
+            <div className="buttons-div">
+              <button type="submit"> COMMENT</button>{" "}
+              <button type="cancel" onClick={handleCancel}>
+                CANCEL
+              </button>
+            </div>
+          ) : null}
         </form>
         {/* <button onClick={handleSubmit}>Add note </button> */}
       </div>

@@ -1,0 +1,17 @@
+
+
+
+INSERT INTO 
+projects(name, start_date, end_date)
+VALUES
+('AI for Marketing','2019-08-01','2019-12-31'),
+('ML for Sales','2019-05-15','2019-11-20');
+
+
+
+INSERT INTO 
+cocktails (name, image, text, price )
+VALUES
+('Vodka Strawberry Cocktails','https://cocktail-list.s3.us-west-2.amazonaws.com/cocktails+list/strawberry.jpg','4 strawberries,6 basil,2un vodka,¾ ounce simple syrup,lemon juice, Prosecco','18')
+
+

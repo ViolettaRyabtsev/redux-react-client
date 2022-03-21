@@ -9,6 +9,7 @@ import AccountDetails from "./login-form cpmponents/AccountDetails";
 import MainPhoto from "./MainPhoto";
 import SignInForm from "./login-form cpmponents/SignInForm";
 import ContactUs from "./contact-us component/ContactUs";
+import ShoppingCart from "./ShoppingCart";
 // import CocktailComponent from "./shop components/CocktailComponent";
 import CocktailDetails from "./shop components/CocktailDetails";
 import { bindActionCreators } from "redux";
@@ -39,6 +40,7 @@ export const GET_COCKTAILS = gql`
 
 function App() {
   const store = useSelector((state) => state);
+
   const { data, loading, error } = useQuery(GET_COCKTAILS);
 
   const dispatch = useDispatch();
@@ -60,8 +62,8 @@ function App() {
         <Route path="/shop/:id" element={<CocktailDetails />}></Route>
         <Route path="/account" element={<SignInForm />}></Route>
         <Route path="/account/id" element={<AccountDetails />} />
+        <Route path="/shopping-cart" element={<ShoppingCart />} />
       </Routes>
-      <div>{store.user.username} login </div>
       <Footer />
     </>
   );

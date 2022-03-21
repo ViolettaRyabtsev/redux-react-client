@@ -4,7 +4,7 @@ import "./notes.css";
 import Note from "./Note";
 function Notes(props) {
   return (
-    <div>
+    <div className="comments">
       {props.data.notes.map((item) => (
         <div className="comment">
           <Note

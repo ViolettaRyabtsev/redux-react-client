@@ -1,24 +1,28 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useQuery, gql } from "@apollo/client";
-import { BsFillCartFill } from "react-icons/bs";
-import { MdOutlineSwitchAccount } from "react-icons/md";
+import { useState } from "react";
+import { Parallax, Background } from "react-parallax";
 import "./Shop.css";
 
 import CocktailComponent from "./CocktailComponent";
 
 function ShopCocktails() {
   //   const { data, loading, error, refetch } = useQuery(GET_COCKTAILS);
+  const [seacrhCocktail, setSearchCocktailList] = useState("");
 
   //   if (loading) return "Loading...";
   //   if (error) return `Error! ${error.message}`;
   const store = useSelector((state) => state);
-
+  console.log(seacrhCocktail, "cocktail");
   return (
     <div>
       <div className="shop-header">
         <div className="searchBar-shop">
-          <input type="text" />
-          <div className="SHOP-LOGO"> Cocktail list</div>
+          <input
+            onChange={(e) => setSearchCocktailList(e.target.value)}
+            type="text"
+          />
+          <img width="400px" height="90px" src="./drinks.png" alt="logo"></img>{" "}
         </div>
 
         <div className="shop-header-nav">
@@ -33,15 +37,17 @@ function ShopCocktails() {
         <h2>Free express shipping on orders over $100</h2>
       </div>
       <div className="container">
-        {store.cocktailList.map((item) => (
-          <CocktailComponent
-            name={item.name}
-            image={item.image}
-            text={item.text}
-            price={item.price}
-            id={item.id}
-          />
-        ))}
+        {store.cocktailList
+          .filter((item) => item.name.toLowerCase().includes(seacrhCocktail))
+          .map((item) => (
+            <CocktailComponent
+              name={item.name}
+              image={item.image}
+              text={item.text}
+              price={item.price}
+              id={item.id}
+            />
+          ))}
       </div>
       here
     </div>

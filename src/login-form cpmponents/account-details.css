@@ -5,8 +5,34 @@
 
 .account-details {
   background-color: blue;
+  width: 30%;
 }
 
 .order-history {
   background-color: pink;
+  width: 70%;
+}
+
+.account-details {
+  display: grid;
+}
+
+.account-details button {
+  width: 100px;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  margin-left: 40px;
+}
+
+.body {
+  display: flex;
+}
+
+.body div {
+  margin-left: 50px;
 }

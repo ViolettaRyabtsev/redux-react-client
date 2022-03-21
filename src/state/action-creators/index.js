@@ -24,3 +24,12 @@ export const selectCocktail = (obj) => {
     });
   };
 };
+
+export const setShoppingCart = (arr) => {
+  return (dispatch) => {
+    dispatch({
+      type: "SET_SHOPPING_CART",
+      payload: arr,
+    });
+  };
+};

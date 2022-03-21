@@ -129,11 +129,7 @@ const SignInForm = (props) => {
           <button type="submit" className="signIn-button">
             Register Now
           </button>
-          {submit ? (
-            <Navigate to="/account/id" replace={true} />
-          ) : (
-            <div>hi</div>
-          )}
+          {submit ? <Navigate to="/account/id" replace={true} /> : null}
         </form>
       </div>
     </div>

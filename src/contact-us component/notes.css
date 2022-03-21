@@ -1,9 +1,68 @@
-.note-section {
-  background-color: burlywood;
-  border-radius: 10px;
+.comment-container input {
+  width: 600px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #eae7dc;
+  margin-top: 30px;
+  outline: none;
 }
 
+.comment-container .input-name {
+  width: 100px;
+  height: 20px;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #eae7dc;
+  outline: none;
+}
 
-.comment :hover {
-  background: #752f2f;
+.comment-container .tell-us h2 {
+  margin: auto;
+  width: 700px;
+}
+
+.comment-container .tell-us h2 {
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+.comment-container {
+  margin: auto;
+  width: 50%;
+  transform: translate(0, 30%);
+}
+
+.comments {
+  margin-top: 150px;
+  margin: auto;
+  width: 80%;
+  margin-top: 80px;
+}
+
+.comment-container .buttons-div {
+  width: 600px;
+  display: flex;
+}
+
+.comment-container button {
+  width: 100px;
+  height: 40px;
+  border-radius: 2em;
+  transform: translate(100%, 0);
+  background-color: black;
+  color: white;
+}
+
+.note-section {
+  margin-top: 10px;
+  background-color: burlywood;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  width: 90%;
 }

@@ -1,8 +1,7 @@
 import { AiFillStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCocktail } from "../state/action-creators/index";
-import { MdOutlineSwitchAccount } from "react-icons/md";
+
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state/index";
 
@@ -11,11 +10,12 @@ const CocktailComponent = (props) => {
   const store = useSelector((state) => state);
   //   const { selectCocktail } = bindActionCreators(actionCreators, dispatch);
 
-  const { selectCocktail } = bindActionCreators(actionCreators, dispatch);
+  const { selectCocktail, setShoppingCart } = bindActionCreators(
+    actionCreators,
+    dispatch
+  );
 
   const setCocktailDetail = () => {
-    console.log(props.id, props.text);
-
     selectCocktail({
       id: props.id,
       name: props.name,
@@ -25,11 +25,38 @@ const CocktailComponent = (props) => {
     });
   };
 
+  const addToShoppingCart = () => {
+    const newCart = [...store.setShoppingCart];
+    let itemIsPresent = false;
+    for (let i = 0; i < newCart.length; i++) {
+      if (newCart[i].name === props.name) {
+        newCart[i].price += props.price;
+        newCart[i].count += 1;
+        itemIsPresent = true;
+        break;
+      }
+    }
+
+    if (!itemIsPresent) {
+      const obj = {
+        count: 1,
+        id: props.id,
+        name: props.name,
+        image: props.image,
+        text: props.text,
+        price: props.price,
+      };
+      newCart.push(obj);
+    }
+
+    setShoppingCart(newCart);
+  };
+
   console.log(store, "store details");
 
   return (
-    <div className="cocktail-box" onClick={setCocktailDetail}>
-      <Link to={`/shop/${props.id}`}>
+    <div className="cocktail-box">
+      <Link to={`/shop/${props.id}`} onClick={setCocktailDetail}>
         <img
           alt="cocktail"
           src={props.image}
@@ -49,9 +76,9 @@ const CocktailComponent = (props) => {
         </div>
         <div className="price-button">
           <h3>$ {props.price}</h3>
-          <button>Add to Cart</button>
         </div>
       </Link>
+      <button onClick={addToShoppingCart}>Add to Cart</button>
     </div>
   );
 };

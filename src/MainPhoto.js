@@ -1,5 +1,5 @@
 import "./main-about.css";
-
+import { Parallax, Background } from "react-parallax";
 function MainPhoto() {
   return (
     <div className="about-us">
