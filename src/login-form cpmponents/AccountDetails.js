@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 const AccountDetails = () => {
   const store = useSelector((state) => state);
-  console.log(store, "store from details");
+
   const dispatch = useDispatch();
 
   const { setUserName } = bindActionCreators(actionCreators, dispatch);
@@ -14,7 +14,6 @@ const AccountDetails = () => {
   const handleLogOut = () => {
     setUserName({ id: "", username: "" });
   };
-  console.log(store);
 
   return (
     <div className="account-details-body">

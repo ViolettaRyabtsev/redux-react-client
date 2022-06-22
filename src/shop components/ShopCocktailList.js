@@ -24,14 +24,6 @@ function ShopCocktails() {
           />
           <img width="400px" height="90px" src="./drinks.png" alt="logo"></img>{" "}
         </div>
-
-        <div className="shop-header-nav">
-          <ul style={{ "list-style-type": "none" }}>
-            <li>Birthday Party</li>
-            <li> Gender Reveal Party </li>
-            <li> Bachelorette Party</li>
-          </ul>
-        </div>
       </div>
       <div className="advertising">
         <h2>Free express shipping on orders over $100</h2>

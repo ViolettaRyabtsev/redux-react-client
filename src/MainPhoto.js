@@ -15,7 +15,6 @@ function MainPhoto() {
           <b>bachelor party</b>, <b>gender reveal party</b> collection
         </h4>
       </div>
-
       <div className="show-collection">
         <img
           alt="main-cocktails"

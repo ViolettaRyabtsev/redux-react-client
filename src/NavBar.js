@@ -38,7 +38,6 @@ function NavBar() {
       res += store.setShoppingCart[i].count;
       console.log(res);
     }
-
     return res;
   };
 
@@ -73,7 +72,7 @@ function NavBar() {
             </span>
           </Link>
         </h3>
-        <h3>
+        <h3 style={{ "margin-left": "30px" }}>
           <GoLocation className="icon" />
         </h3>
       </div>

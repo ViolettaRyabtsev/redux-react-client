@@ -7,7 +7,7 @@ const ShoppingCart = () => {
 
   return (
     <div className="cart-information">
-      <h3>Please check quantity is correct prior check out </h3>
+      <h3 >Please check quantity is correct prior check out </h3>
       <div className="all-products">
         <table>
           <tr>
